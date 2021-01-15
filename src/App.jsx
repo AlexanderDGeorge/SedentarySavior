@@ -1,13 +1,17 @@
-import useFetchUser from "./util/useFetchUser";
+import useUser from "./util/useUser";
 import styled from "styled-components";
 import useRouter from "./util/useRouter";
+import UserCreate from "./Components/User/UserCreate";
 
 export default function App() {
-  const { user } = useFetchUser();
+  const { user } = useUser();
 
-  Notification.requestPermission();
+  // Notification.requestPermission();
+
+  console.log(user);
 
   if (user) {
+    console.log("here");
     return (
       <StyledApp>
         <Router user={user} />
@@ -16,7 +20,7 @@ export default function App() {
   } else {
     return (
       <StyledApp>
-        <h1>User Creation Here</h1>
+        <UserCreate />
       </StyledApp>
     );
   }
@@ -26,9 +30,6 @@ const StyledApp = styled.div`
   height: 100%;
   width: 100%;
   background: ${(props) => props.theme.bg};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 function Router({ user }) {

@@ -10,8 +10,37 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Raleway';
+    font-family: sans-serif;
     transition: background-color 0.6s ease-in-out;
+    font-weight: 300;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway';
+    font-weight: 500;
+  }
+  input, button {
+    font-family: 'Raleway';
+    outline: none;
+  }
+  button {
+    height: 40px;
+    min-width: 80%;
+    border: 0;
+    border-radius: 24px;
+    padding: 8px;
+    box-shadow: 0 4px 24px -8px black;
+    color: white;
+    background: #d00000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:disabled {
+      box-shadow: 0 0 0 0;
+      color: #333333;
+      background: #aaaaaa;
+      cursor: not-allowed;
+    }
   }
   body {
     display: flex;
