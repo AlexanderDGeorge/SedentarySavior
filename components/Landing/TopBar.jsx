@@ -1,10 +1,18 @@
 import styled from "styled-components";
+import {
+  PrimaryButton,
+  SecondaryButton,
+} from "../../styled-components/Buttons";
+import Link from "next/link";
 
 export default function TopBar() {
   return (
     <StyledTopBar>
-      <h2>Sedentary Savior</h2>
-      <button>Log In</button>
+      <h2>SS</h2>
+      <div>
+        <PrimaryButton style={{ marginRight: 10 }}>Log In</PrimaryButton>
+        <SecondaryButton>Sign Up</SecondaryButton>
+      </div>
     </StyledTopBar>
   );
 }

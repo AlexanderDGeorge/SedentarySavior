@@ -4,6 +4,7 @@ export const lightTheme = {
   color: "#333333",
   fill: "#dddddd",
   lime: "#CCFF33",
+  orange: "#FB8F22",
 };
 
 export const darkTheme = {
@@ -12,4 +13,5 @@ export const darkTheme = {
   color: "#fefefe",
   fill: "#222222",
   lime: "#CCFF33",
+  orange: "#FB8F22",
 };

@@ -1,7 +1,15 @@
+import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 
 export default function TopBar() {
-  return <StyledTopBar></StyledTopBar>;
+  return (
+    <StyledTopBar>
+      <Link href="/">Dashboard</Link>
+      <Link href="/equipment">Equipment</Link>
+      <Link href="/exercises">Exercises</Link>
+      <Link href="/stretches">Stretches</Link>
+    </StyledTopBar>
+  );
 }
 
 const underglow = keyframes`
@@ -20,6 +28,7 @@ const StyledTopBar = styled.nav`
   left: 0;
   width: 100%;
   height: 80px;
+  padding: 0 6%;
   background: ${(props) => props.theme.bg};
   box-shadow: 0 4px 16px -8px ${(props) => props.theme.lime};
   display: flex;
@@ -29,5 +38,9 @@ const StyledTopBar = styled.nav`
   @media screen and (max-width: 500px) {
     top: calc(100% - 80px);
     box-shadow: 0 -4px 16px -8px ${(props) => props.theme.lime};
+  }
+  > a {
+    color: ${(props) => props.theme.color};
+    text-decoration: none;
   }
 `;

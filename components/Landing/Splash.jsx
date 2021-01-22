@@ -20,7 +20,5 @@ const StyledSplash = styled.div`
   flex-direction: column;
   background: ${(props) => props.theme.bg};
   overflow-y: auto;
-  * {
-    color: ${(props) => props.theme.color};
-  }
+  color: ${(props) => props.theme.color};
 `;
