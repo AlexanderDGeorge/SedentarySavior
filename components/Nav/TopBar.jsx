@@ -1,13 +1,18 @@
 import Link from "next/link";
+import { useRecoilState } from "recoil";
 import styled, { keyframes } from "styled-components";
+import { userState } from "../../pages";
 
 export default function TopBar() {
+  const [_, setUser] = useRecoilState(userState);
+
   return (
     <StyledTopBar>
       <Link href="/">Dashboard</Link>
       <Link href="/equipment">Equipment</Link>
       <Link href="/exercises">Exercises</Link>
       <Link href="/stretches">Stretches</Link>
+      <button onClick={() => setUser(undefined)}>Log Out</button>
     </StyledTopBar>
   );
 }

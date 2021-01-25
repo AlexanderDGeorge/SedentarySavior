@@ -40,7 +40,7 @@ function Graphic1() {
 
 const StyledGraphic1 = styled.div`
   width: 100%;
-  padding: 6% 20%;
+  padding: 12% 6%;
   background: ${(props) => props.theme.lime};
   display: flex;
   align-items: center;
@@ -94,7 +94,7 @@ function Graphic2() {
 
 const StyledGraphic2 = styled.div`
   width: 100%;
-  padding: 6% 20%;
+  padding: 12% 6%;
   background: ${(props) => props.theme.color};
   display: flex;
   flex-direction: column;

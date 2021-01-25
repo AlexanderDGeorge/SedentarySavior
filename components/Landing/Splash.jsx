@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CallToAction from "./CallToAction";
+import Footer from "./Footer";
 import InfoGraphic from "./InfoGraphic";
 import TopBar from "./TopBar";
 
@@ -9,6 +10,7 @@ export default function Splash() {
       <TopBar />
       <CallToAction />
       <InfoGraphic />
+      <Footer />
     </StyledSplash>
   );
 }

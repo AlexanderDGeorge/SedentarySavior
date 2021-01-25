@@ -3,14 +3,23 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "../../styled-components/Buttons";
+import { userState } from "../../pages/index";
 import Link from "next/link";
+import { useRecoilState } from "recoil";
 
 export default function TopBar() {
+  const [_, setUser] = useRecoilState(userState);
+
   return (
     <StyledTopBar>
       <h2>SS</h2>
       <div>
-        <PrimaryButton style={{ marginRight: 10 }}>Log In</PrimaryButton>
+        <PrimaryButton
+          style={{ marginRight: 10 }}
+          onClick={() => setUser({ user: "Alex" })}
+        >
+          Log In
+        </PrimaryButton>
         <SecondaryButton>Sign Up</SecondaryButton>
       </div>
     </StyledTopBar>
