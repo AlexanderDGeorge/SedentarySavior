@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useSpring, animated, useChain, config } from "react-spring";
 import styled from "styled-components";
 import { buttonStyling } from "../../styled-components/Buttons";
+import Image from "next/image";
 
 export default function CallToAction() {
   const getRef = useRef();
@@ -50,6 +51,7 @@ export default function CallToAction() {
         Fight the dangers of a sedentary lifestyle.
       </animated.h2>
       <StyledButton style={buttonSpring}>GET MOVING</StyledButton>
+      {/* <Image src="/Saly.svg" height={600} width={600} /> */}
     </StyledCallToAction>
   );
 }
