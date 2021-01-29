@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FiBarChart, FiLogOut, FiSliders } from "react-icons/fi";
 import { useRecoilState } from "recoil";
 import styled, { keyframes } from "styled-components";
 import { userState } from "../../pages";
@@ -8,44 +9,36 @@ export default function TopBar() {
 
   return (
     <StyledTopBar>
-      <Link href="/">Dashboard</Link>
-      <Link href="/equipment">Equipment</Link>
-      <Link href="/exercises">Exercises</Link>
-      <Link href="/stretches">Stretches</Link>
-      <button onClick={() => setUser(undefined)}>Log Out</button>
+      <Link href="/">
+        <FiBarChart />
+      </Link>
+      <Link href="/settings">
+        <FiSliders />
+      </Link>
+      <FiLogOut onClick={() => setUser(undefined)} />
     </StyledTopBar>
   );
 }
-
-const underglow = keyframes`
-  from {
-    box-shadow: 0 4px 16px -8px ${(props) => props.theme.lime}
-  };
-  to {
-    box-shadow: 0 4px 8px -8px ${(props) => props.theme.lime}
-  }
-`;
 
 const StyledTopBar = styled.nav`
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  padding: 0 6%;
-  background: ${(props) => props.theme.bg};
-  box-shadow: 0 4px 16px -8px ${(props) => props.theme.lime};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* animation: ${underglow} 4s linear infinite; */
-  @media screen and (max-width: 500px) {
-    top: calc(100% - 80px);
-    box-shadow: 0 -4px 16px -8px ${(props) => props.theme.lime};
-  }
-  > a {
-    color: ${(props) => props.theme.color};
-    text-decoration: none;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #444;
+  padding: 20px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0 4px 16px -8px;
+  svg {
+    width: 36px;
+    height: 36px;
+    margin: 0 10px;
+    color: ${(props) => props.theme.lime};
+    cursor: pointer;
+    &:hover {
+      color: ${(props) => props.theme.color};
+    }
   }
 `;

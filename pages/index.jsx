@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { atom, useRecoilValue } from "recoil";
 import { ThemeProvider } from "styled-components";
 import DashBoard from "../components/DashBoard/DashBoard";
@@ -13,12 +13,6 @@ export const userState = atom({
 export default function Home() {
   const [theme, setTheme] = useState(darkTheme);
   const user = useRecoilValue(userState);
-
-  console.log(user);
-
-  useEffect(() => {
-    const notification = new Notification("test");
-  }, []);
 
   return (
     <ThemeProvider theme={theme}>

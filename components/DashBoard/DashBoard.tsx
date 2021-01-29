@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import TopBar from "../Nav/TopBar";
-import Timer from "../Timer/Timer";
+import TimerWrapper from "../Timer/TimerWrapper";
 
 export default function DashBoard() {
   return (
     <StyledDashBoard>
-      <Timer />
+      {/* <TopBar /> */}
+      <TimerWrapper />
     </StyledDashBoard>
   );
 }
@@ -13,8 +14,5 @@ export default function DashBoard() {
 const StyledDashBoard = styled.div`
   height: 100%;
   width: 100%;
-  padding: 100px 6%;
   background: ${(props) => props.theme.bg};
-  display: flex;
-  flex-direction: column;
 `;

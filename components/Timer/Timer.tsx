@@ -1,47 +1,53 @@
 import styled from "styled-components";
 import { FiPlay, FiPause } from "react-icons/fi";
-import { useState } from "react";
 import { animated, useSpring } from "react-spring";
+import { useEffect } from "react";
 
-export default function Timer({ duration = 600000 }) {
-  const [playing, setPlaying] = useState(false);
-  const [spring, setSpring, stop] = useSpring(() => ({
+export default function Timer(props: {
+  minutes: number;
+  running: boolean;
+  setRunning: Function;
+}) {
+  const { minutes, running, setRunning } = props;
+  const initialSpring = {
     offset: 1533,
     config: {
-      duration,
+      duration: minutes * 60000,
     },
-  }));
+    // onFrame: (val) => console.log(val),
+  };
+  const [spring, setSpring] = useSpring(() => initialSpring);
+
+  useEffect(() => {
+    setSpring(initialSpring);
+  }, [minutes]);
 
   const togglePlay = () => {
-    const temp = playing;
-    setPlaying(!temp);
-    if (temp) {
-      console.log("here");
-      stop();
+    if (running) {
+      setSpring({ offset: spring.offset.getValue() });
     } else {
-      setSpring({ offset: 3000 });
+      setSpring({ offset: 3066 });
     }
+    setRunning((prev) => !prev);
   };
 
   return (
-    <StyledTimer>
-      <StyledDial>
-        <StyledSVG
-          width="500"
-          height="500"
-          viewBox="0 0 500 500"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          id="circle"
-          strokeDashoffset={spring.offset}
-        >
-          <circle cx="250" cy="250" r="244" strokeWidth="10" />
-        </StyledSVG>
-        <StyledButton onClick={togglePlay}>
-          {playing ? <FiPause /> : <FiPlay />}
-        </StyledButton>
-      </StyledDial>
-    </StyledTimer>
+    <StyledDial>
+      <StyledSVG
+        width="500"
+        height="500"
+        viewBox="0 0 500 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        id="circle"
+        strokeDashoffset={spring.offset}
+      >
+        <circle cx="250" cy="250" r="244" strokeWidth="10" />
+      </StyledSVG>
+      <StyledButton onClick={togglePlay}>
+        {running ? <FiPause /> : <FiPlay />}
+      </StyledButton>
+    </StyledDial>
   );
 }
 
@@ -84,6 +90,7 @@ const StyledButton = styled.button`
     height: 60%;
     width: 60%;
     stroke: ${(props) => props.theme.lime};
+    stroke-width: 1;
   }
 `;
 
@@ -91,6 +98,7 @@ const StyledSVG = styled(animated.svg)`
   position: absolute;
   stroke: ${(props) => props.theme.lime};
   stroke-dasharray: 1533;
-  /* stroke-dashoffset: 1533; */
   transform: rotate(-90deg);
+  border-radius: 50%;
+  box-shadow: 0 0 20px 4px inset;
 `;
