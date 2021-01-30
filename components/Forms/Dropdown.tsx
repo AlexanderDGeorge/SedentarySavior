@@ -37,8 +37,10 @@ export default function Dropdown(props: {
         {value}
         <FiChevronDown />
         <Options style={spring}>
-          {options.map((option) => (
-            <p onClick={() => setValue(option)}>{option}</p>
+          {options.map((option, i) => (
+            <p key={i} onClick={() => setValue(option)}>
+              {option}
+            </p>
           ))}
         </Options>
       </div>
@@ -50,6 +52,8 @@ const StyledDropdown = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
+  cursor: pointer;
   > label {
     font-size: 24px;
     font-weight: 600;
@@ -57,14 +61,19 @@ const StyledDropdown = styled.div`
   }
   > div {
     position: relative;
-    padding: 4px 8px;
-    border: 1px dashed;
+    padding: 8px;
+    border: 2px dashed ${(props) => props.theme.bg};
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
+    font-size: 18px;
+    &:hover {
+      border: 2px dashed ${(props) => props.theme.lime};
+    }
     > svg {
       position: absolute;
       right: 0;
-      top: 6px;
+      top: 8px;
       height: 24px;
       width: 24px;
     }
