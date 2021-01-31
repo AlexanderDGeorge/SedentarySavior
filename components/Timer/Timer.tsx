@@ -34,8 +34,6 @@ export default function Timer(props: {
   return (
     <StyledDial>
       <StyledSVG
-        width="500"
-        height="500"
         viewBox="0 0 500 500"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -51,24 +49,20 @@ export default function Timer(props: {
   );
 }
 
-const StyledTimer = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const StyledDial = styled.div`
   position: relative;
   height: 500px;
   width: 500px;
   border-radius: 50%;
   background: ${(props) => props.theme.bg};
-  box-shadow: 0px 4px 12px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: ${(props) => props.theme.boxShadow};
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 600px) {
+    height: 80vw;
+    width: 80vw;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -77,14 +71,14 @@ const StyledButton = styled.button`
   width: 150px;
   border: 0;
   border-radius: 48px;
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: ${(props) => props.theme.boxShadow};
   background: ${(props) => props.theme.bg};
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
   &:hover {
-    box-shadow: 0px 4px 20px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: ${(props) => props.theme.hoverShadow};
   }
   > svg {
     height: 60%;
@@ -100,5 +94,5 @@ const StyledSVG = styled(animated.svg)`
   stroke-dasharray: 1533;
   transform: rotate(-90deg);
   border-radius: 50%;
-  box-shadow: 0 0 20px 4px inset;
+  box-shadow: 0 0 20px 0 inset;
 `;

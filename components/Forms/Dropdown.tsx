@@ -3,6 +3,7 @@ import { FiChevronDown } from "react-icons/fi";
 import { animated, config, useSpring } from "react-spring";
 import { useEffect, useRef, useState } from "react";
 import useOnOutsideClick from "../../util/useOnOutsideClick";
+import { inputWrapper } from "./commonStyles";
 
 export default function Dropdown(props: {
   label: string;
@@ -24,7 +25,7 @@ export default function Dropdown(props: {
 
   useEffect(() => {
     if (open) {
-      setSpring({ height: 26 * options.length, opacity: 1 });
+      setSpring({ height: 26 * options.length + 10, opacity: 1 });
     } else {
       setSpring(close);
     }
@@ -35,7 +36,7 @@ export default function Dropdown(props: {
       <label htmlFor={label}>{label}</label>
       <div onClick={() => setOpen((prev) => !prev)}>
         {value}
-        <FiChevronDown />
+        <FiChevronDown style={open ? { transform: "rotate(180deg)" } : {}} />
         <Options style={spring}>
           {options.map((option, i) => (
             <p key={i} onClick={() => setValue(option)}>
@@ -49,39 +50,20 @@ export default function Dropdown(props: {
 }
 
 const StyledDropdown = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  cursor: pointer;
-  > label {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
+  ${inputWrapper};
   > div {
-    position: relative;
-    padding: 8px;
-    border: 2px dashed ${(props) => props.theme.bg};
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    font-size: 18px;
-    &:hover {
-      border: 2px dashed ${(props) => props.theme.lime};
-    }
     > svg {
       position: absolute;
-      right: 0;
-      top: 8px;
+      right: 8px;
       height: 24px;
       width: 24px;
+      transition: all 0.2s ease-out;
     }
   }
 `;
 
 const Options = styled(animated.div)`
-  width: 100%;
+  width: calc(100% - 24px);
   color: ${(props) => props.theme.color};
   > p {
     padding: 4px;
@@ -90,6 +72,9 @@ const Options = styled(animated.div)`
     &:hover {
       color: #333;
       background: ${(props) => props.theme.lime};
+    }
+    &:first-of-type {
+      margin-top: 10px;
     }
   }
 `;

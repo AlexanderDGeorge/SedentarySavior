@@ -1,16 +1,15 @@
 import { useEffect } from "react";
 import { useSpring, animated, config } from "react-spring";
 import styled from "styled-components";
+import { inputWrapper } from "./commonStyles";
 
-export default function RadioSelect(props: {
-  locked: boolean;
+export default function Radio(props: {
   label: string;
   value: string;
   setValue: Function;
   options: Array<string>;
-  children?: JSX.Element;
 }) {
-  const { locked, label, value, setValue, options, children } = props;
+  const { label, value, setValue, options } = props;
 
   const [spring, setSpring] = useSpring(() => ({
     x: 0,
@@ -23,15 +22,14 @@ export default function RadioSelect(props: {
   }, []);
 
   const handleSelect = (e) => {
-    if (locked) return;
     setValue(e.target.innerText);
     setSpring({ x: e.target.offsetLeft - 8 });
   };
 
   return (
-    <StyledRadioSelect>
+    <StyledRadio>
       <label>{label}</label>
-      <Options>
+      <div>
         {options.map((option, i) => (
           <StyledOption key={i} onClick={handleSelect} id={option}>
             {option}
@@ -42,38 +40,21 @@ export default function RadioSelect(props: {
             transform: spring.x.interpolate((val) => `translateX(${val}px)`),
           }}
         />
-      </Options>
-    </StyledRadioSelect>
+      </div>
+    </StyledRadio>
   );
 }
 
-const StyledRadioSelect = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  cursor: pointer;
-  > label {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
+const StyledRadio = styled.div`
+  ${inputWrapper};
   .selected {
     background: ${(props) => props.theme.lime};
     color: ${(props) => props.theme.bg};
   }
-`;
-
-const Options = styled.div`
-  position: relative;
-  padding: 8px;
-  border: 2px dashed ${(props) => props.theme.bg};
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  &:hover {
-    border: 2px dashed ${(props) => props.theme.lime};
+  > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 

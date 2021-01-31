@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import SetTimer from "./SetTimer";
-import Settings from "./Settings";
 import Timer from "./Timer";
 
 export default function TimerWrapper() {
-  const [minutes, setMinutes] = useState(30);
+  const [minutes, setMinutes] = useState(1);
   const [running, setRunning] = useState(false);
   const [runTime, setRunTime] = useState([]);
   const [remaining, setRemaining] = useState();
@@ -20,7 +18,6 @@ export default function TimerWrapper() {
     <StyledWrapper>
       {/* <SetTimer minutes={minutes} setMinutes={setMinutes} running={running} /> */}
       <Timer minutes={minutes} running={running} setRunning={setRunning} />
-      <Settings />
     </StyledWrapper>
   );
 }
@@ -31,4 +28,6 @@ const StyledWrapper = styled.div`
   padding: 2%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
 `;

@@ -1,11 +1,23 @@
+import { useState } from "react";
 import styled from "styled-components";
-import TopBar from "../Nav/TopBar";
 import TimerWrapper from "../Timer/TimerWrapper";
+import Settings from "./Settings";
+
+const PRESETS = {
+  Default: {
+    title: "Default",
+    type: "Duration",
+    repeat: true,
+    equipment: [],
+  },
+};
 
 export default function DashBoard() {
+  const [preset, setPreset] = useState();
+
   return (
     <StyledDashBoard>
-      {/* <TopBar /> */}
+      <Settings preset={preset} setPreset={setPreset} />
       <TimerWrapper />
     </StyledDashBoard>
   );

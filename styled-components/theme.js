@@ -5,6 +5,8 @@ export const lightTheme = {
   fill: "#dddddd",
   lime: "#CCFF33",
   orange: "#FB8F22",
+  boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.3)",
+  hoverShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.6)",
 };
 
 export const darkTheme = {
@@ -14,4 +16,6 @@ export const darkTheme = {
   fill: "#222222",
   lime: "#CCFF33",
   orange: "#FB8F22",
+  boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.3)",
+  hoverShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.6)",
 };
