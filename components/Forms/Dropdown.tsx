@@ -7,8 +7,8 @@ import { inputWrapper } from "./commonStyles";
 
 export default function Dropdown(props: {
   label: string;
-  options: Array<string>;
-  value: string;
+  options: Array<object>;
+  value: object;
   setValue: Function;
 }) {
   const { label, options, value, setValue } = props;
@@ -35,14 +35,14 @@ export default function Dropdown(props: {
     <StyledDropdown ref={ref}>
       <label htmlFor={label}>{label}</label>
       <div onClick={() => setOpen((prev) => !prev)}>
-        {value}
+        {value.title}
         <FiChevronDown style={open ? { transform: "rotate(180deg)" } : {}} />
         <Options style={spring}>
-          {options.map((option, i) => (
+          {/* {options.map((option, i) => (
             <p key={i} onClick={() => setValue(option)}>
-              {option}
+              {option.title}
             </p>
-          ))}
+          ))} */}
         </Options>
       </div>
     </StyledDropdown>

@@ -1,23 +1,19 @@
 import { useState } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { userState } from "../../pages";
 import TimerWrapper from "../Timer/TimerWrapper";
 import Settings from "./Settings";
 
-const PRESETS = {
-  Default: {
-    title: "Default",
-    type: "Duration",
-    repeat: true,
-    equipment: [],
-  },
-};
-
 export default function DashBoard() {
+  const user = useRecoilValue(userState);
   const [preset, setPreset] = useState();
+
+  // console.log(user.presets[0]);
 
   return (
     <StyledDashBoard>
-      <Settings preset={preset} setPreset={setPreset} />
+      {/* <Settings preset={preset} setPreset={setPreset} /> */}
       <TimerWrapper />
     </StyledDashBoard>
   );

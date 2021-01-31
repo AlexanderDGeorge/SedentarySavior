@@ -10,7 +10,7 @@ import Range from "../Forms/Range";
 import TextInput from "../Forms/TextInput";
 
 export default function Settings(props: {
-  preset: string;
+  preset: object;
   setPreset: Function;
 }) {
   const { preset, setPreset } = props;
@@ -20,7 +20,6 @@ export default function Settings(props: {
   const [title, setTitle] = useState("");
   const [equipment, setEquipment] = useState([]);
   const settingsRef = useRef(null);
-  const locked = preset === "Default";
 
   const [spring, setSpring] = useSpring(() => ({ x: 0, config: config.stiff }));
 
@@ -48,7 +47,7 @@ export default function Settings(props: {
         label="Preset"
         value={preset}
         setValue={setPreset}
-        options={["Default", "Create a Preset"]}
+        options={[]}
       />
       <TextInput label="Title" value={title} setValue={setTitle} />
       <Radio
