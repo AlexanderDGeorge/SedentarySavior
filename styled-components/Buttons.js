@@ -17,7 +17,7 @@ export const buttonStyling = css`
 export const PrimaryButton = styled.button`
   ${buttonStyling}
   background: ${(props) => props.theme.lime};
-  color: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.color};
   border: 2px solid ${(props) => props.theme.lime};
   &:hover {
     background: ${(props) => props.theme.bg};

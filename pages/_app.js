@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { RecoilRoot } from "recoil";
 import GlobalStyle from "../styled-components/globalStyle";
 import Head from "next/head";

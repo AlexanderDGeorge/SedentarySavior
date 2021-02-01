@@ -6,8 +6,8 @@ export const lightTheme = {
   lime: "#CCFF33",
   link: "#13B4CD",
   orange: "#FB8F22",
-  boxShadow: "4px 4px 16px -8px #333",
-  hoverShadow: "4px 4px 16px -6px #333",
+  boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.3)",
+  hoverShadow: "4px 4px 16px rgba(0, 0, 0, 0.6)",
 };
 
 export const darkTheme = {
