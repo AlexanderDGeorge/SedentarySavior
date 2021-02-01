@@ -19,7 +19,13 @@ export default function TopBar() {
         >
           Log In
         </PrimaryButton>
-        <SecondaryButton>Sign Up</SecondaryButton>
+        <SecondaryButton
+          onClick={() => {
+            window.location.href = "/signup";
+          }}
+        >
+          Sign Up
+        </SecondaryButton>
       </div>
     </StyledTopBar>
   );

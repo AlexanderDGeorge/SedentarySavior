@@ -1,6 +1,6 @@
 import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
-import { BiDownArrow } from "react-icons/bi";
+import { FiArrowDown } from "react-icons/fi";
 
 export default function Day(props) {
   const hours = useSpring({
@@ -25,7 +25,7 @@ export default function Day(props) {
     <StyledDay>
       <animated.p>
         {props.hours}
-        <BiDownArrow />
+        <FiArrowDown />
       </animated.p>
       <animated.p style={hours}></animated.p>
       <animated.p style={date}>{props.date}</animated.p>

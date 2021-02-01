@@ -4,9 +4,10 @@ export const lightTheme = {
   color: "#333333",
   fill: "#dddddd",
   lime: "#CCFF33",
+  link: "#13B4CD",
   orange: "#FB8F22",
-  boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.3)",
-  hoverShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.6)",
+  boxShadow: "4px 4px 16px -8px #333",
+  hoverShadow: "4px 4px 16px -6px #333",
 };
 
 export const darkTheme = {

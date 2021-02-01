@@ -1,16 +1,32 @@
 {
   "manifest_version": 2,
   "name": "Sedentary Savior",
+  "short_name": "SS",
   "version": "0.1.0",
-  "background": {
-    "scripts": [
-      "configuration.js",
-      "Notification.js",
-      "optionalPermissions.js",
-      "background.js"
-    ],
-    "persistent": false
-  },
-  "permissions": ["push", "notifications"],
-  "optional_permissions": ["tabs"]
+  "description": "description",
+  "icons": [
+    {
+      "src": "icon144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "icon192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "dir": "ltr",
+  "lang": "en",
+  "start_url": "../index.html",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#CCFF33",
+  "background_color": "#fefefe"
 }
